@@ -1,6 +1,6 @@
 
 function SequenceIndex() {
-	// symbol -> {index -> symbol}
+	// symbol -> {position -> symbol}
 	this.map = {};
 	
 	this.first = null;
@@ -61,6 +61,10 @@ SequenceIndex.prototype.find = function(list) {
 		
 	}
 	
+	if(list[0] == this.last) {
+		result.push(this.length-1);
+	}
+	
 	return result;
 }
 
@@ -70,20 +74,21 @@ SequenceIndex.prototype.find = function(list) {
 var idx = new SequenceIndex();
 
 idx.append("hello")
-idx.append("my")
-idx.append("name")
+idx.append("this")
 idx.append("is")
-idx.append("lee")
-idx.append("and")
-idx.append("my")
-idx.append("name")
-idx.append("is")
-idx.append("boring")
+idx.append("a")
+idx.append("test")
 
+idx.append("furthermore")
+idx.append("this")
+idx.append("is")
+idx.append("a")
+idx.append("javascript")
+idx.append("program")
 
 console.log("first = " + idx.first);
 console.log("last = " + idx.last);
 console.log("map = " + JSON.stringify(idx.map));
 
-var results = idx.find(["name", "is"]);
+var results = idx.find(["this","is", "a"]);
 console.log(results);
