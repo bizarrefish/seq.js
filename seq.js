@@ -19,7 +19,6 @@ SequenceIndex.prototype.append = function(symbol) {
 		this.map[symbol] = {};
 	}
 	
-	var index = 0;
 	if(this.last != null) {
 		this.map[this.last][this.length] = symbol;
 	}
